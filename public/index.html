@@ -1,0 +1,99 @@
+<style>
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+body *{
+	font-family: 'Noto Sans Japanese', sans-serif;
+	font-weight: 900;
+}
+</style>
+
+
+<div class="field-item even"><p class="image-box narrow2">今日は、Webフォントの話題を。日本語Webフォントは、「使いたい、でも重くなるからちょっと」という人が多いと思います。でも、グーグルがクラウド上でWebフォントを提供し始めたことで……。</p>
+
+
+<h2>グーグルが日本語のWebフォントをクラウドで提供開始</h2>
+
+
+
+
+
+
+
+<p>グーグルが日本語のWebフォントを提供し始めていました。実は、2014年7月からあったらしいのですが、私はつい最近になって知りました。</p>
+
+<div class="caption-bottom">※Webフォントとしての提供はもう少し後らしいです（<a href="#comment-3635">コメント欄参照</a>）</div>
+
+<p>その名も、「Noto Sans Japanese」。このページの表示も、「Noto Sans Japanese」にしてあります。</p>
+
+
+<p>Noto Sans Japaneseは、6934文字に削減したサブセット版が提供されており、ウェイト（太さ）が7バリエーション。1ウェイトあたり約4.5Mバイトほどのサイズです。</p>
+
+
+
+<p>使い方を簡単に説明すると、CSSで定義ファイルを読み込み、</p>
+
+<pre><code>&lt;style&gt;
+  @import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+&lt;/style&gt;</code></pre>
+
+<p>CSSで、Noto Sans Japaneseを使いたいところのfont-familyを指定するだけです。</p>
+
+<pre><code>&lt;style&gt;
+body *{
+  font-family: 'Noto Sans Japanese', sans-serif;
+}
+h1,h2{
+  font-family: 'Noto Sans Japanese', sans-serif;
+  font-weight: 900;
+}
+h3,h4,h5{
+  font-family: 'Noto Sans Japanese', sans-serif;
+  font-weight: 700;
+}
+&lt;/style&gt;</code></pre>
+
+
+<ul><li><p><a href="http://www.google.com/get/noto/#/family/noto-sans-jpan">Google Noto Fonts：日本語Noto Sans CJK JPの表示サンプル</a></p></li>
+<li><p><a href="http://www.google.com/fonts/earlyaccess#notoSansJapanese">Google Noto Fontsのクラウド上での利用方法</a>（Google Fonts : Early Access、「Japanese」でページ内検索）</p></li>
+</ul><div class="caption-bottom">※上記「Early Access」と書かれているように、上記ページは本格提供のためのフィードバックを得るために公開している段階ですのでご注意を（<a href="#comment-3635">コメント欄参照</a>）</div>
+
+
+<p>利用ライセンスは、かなりゆるい<a href="http://fonts.gstatic.com/ea/notosansjapanese/v3/LICENSE.txt">Apache License, version 2.0</a>。まぁ、「自由に使っていいよ、派生物作ってもいいし、公の場で使ってもいい、料金もとりません、ただし再配布するときはライセンス表記とかちゃんとしてね」というものです。</p>
+
+<p>つまり、だれでも無料で使える日本語のWebフォントであり、しかも、ダウンロードして自分のサーバーに置いて使ってもいいし、グーグルのサーバーに置いた状態で使ってもいいのです。</p>
+
+
+
+<h2>キャッシュに入っていれば日本語Webフォントも重くない</h2>
+
+
+<p>グーグルのサーバーに置いてある日本語Webフォントを使える。これって、実はすごく大きなことなんですよ。もしかしたら、<em>日本語Webフォントの大きな転換点になるかもしれません</em>。</p>
+
+<p>というのも、これでフォントのファイルサイズが大きいことを理由に日本語Webフォントの利用をあきらめなくてよくなる可能性があるからです。</p>
+
+
+
+<p class="aki-top2">少し説明しますね。</p>
+
+<p>SEOにもアクセシビリティにも、画像で作った文字よりもWebフォントの文字のほうが良いのはわかっているものの、やはり文字数の多い<em>日本語Webフォントは、ファイルサイズが大きく、読み込みに時間がかかってしまう</em>ということから、敬遠しがちです。</p>
+
+<p>ただし、その問題は「サイト閲覧者のブラウザが、Webフォントをダウンロードしなければいけない」から発生しています。</p>
+
+<p>ということは、その問題を解決すれば、日本語Webフォントをもっと自由に使えるということですね。</p>
+
+<p class="aki-top2">解決策は、次の3つです。</p>
+
+<ul><li>大多数のコンピュータ（やスマホ）に、共通の日本語Webフォントがあらかじめインストールされている</li>
+<li>ヤフーやグーグルなど、大多数の人がそれなりの頻度でアクセスする場所でWebフォントを使っていて、第三者もそのフォントを同じURLで利用できる</li>
+<li>数Mバイトの転送がまったく問題にならないぐらいネットワーク速度が向上する</li>
+</ul><p><a href="/e/2013/12/10/16577">Webフォントの読み込みをできるだけ軽くする</a>方法もありますが、数Mバイトのダウンロードはやっぱり必要です。</p>
+
+<p>現実的には、2番目の方法しかないんですよね（本当なら、グーグルがChromeのインストール時にWebフォントをコンピュータにインストールしてくれればいいのですが）。</p>
+
+<p class="aki-top2">要は、訪問者のブラウザが「すでにどこかで同じURLのWebフォントファイルを参照していて、キャッシュにWebフォントファイルがある」状態になっていれば、日本語Webフォントを読み込む重さが劇的に改善されるということです。</p>
+
+<p>今までグーグルは「Google Fonts」で欧米の言語向けWebフォントしか提供してきませんでした。しかし、日本語Webフォントも同様に提供してくれていれば、多くの人が同じURLのWebフォントを使うようになり、訪問者のキャッシュにすでにWebフォントが入っている状態である可能性が高まるのです。</p>
+
+<p>まぁ、ただグーグルがホストするだけでなく、「みんながアクセスしているようなサイトが、そのWebフォントを使っていること」というもう1つの条件があるのですが……。</p>
+
+
+</div>
